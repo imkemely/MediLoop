@@ -1,0 +1,21 @@
+# Node
+node_modules
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+package-lock.json
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+dist
+web/dist
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
