@@ -1,19 +1,17 @@
-# Use a lightweight Node image
-FROM node:22-alpine
+﻿FROM node:22-alpine
 
 # Work inside /app/server
 WORKDIR /app/server
 
-# Copy server package files and install prod deps
+# Only copy server package files first (better layer caching)
 COPY server/package*.json ./
 RUN npm ci --omit=dev
 
-# Copy the rest of the server code
+# Now copy the rest of the server code
 COPY server/ .
 
-# Set PORT and expose it (Railway also sets PORT)
+# Railway provides PORT; your code already respects process.env.PORT
 ENV PORT=8080
 EXPOSE 8080
 
-# Start the server
 CMD ["npm","start"]
