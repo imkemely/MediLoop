@@ -7,15 +7,27 @@ package-lock.json
 
 # Env / secrets
 .env
-.env.*
+backend/.env
 !.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
 # Build artifacts
 dist
 web/dist
 
-# OS/editor
+# OS / editor
 .DS_Store
 Thumbs.db
 .vscode/*
 !.vscode/settings.json
+
+# Local test helpers
+_sb_test.py
+*_test.py
+*.log
