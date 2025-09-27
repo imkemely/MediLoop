@@ -1,7 +1,3 @@
-[build]
-builder = "NIXPACKS"
-buildCommand = "cd server && npm ci --omit=dev"
-
-[deploy]
-startCommand = "cd server && npm start"
+﻿[deploy]
+startCommand = "npm start"
 restartPolicyType = "ON_FAILURE"
