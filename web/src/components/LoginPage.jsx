@@ -1,47 +1,46 @@
-import { sx } from "../styles";
-import { useState } from "react";
+// web/src/components/LoginPage.jsx
+import { sx, TURQ } from "../styles";
+import logo from "/logo.jpg"; // in /public/logo.jpg
 
 export default function LoginPage({ onSignIn, onGuest }) {
-  const [email, setEmail] = useState("");
+  let email = "";
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      display: "grid",
-      placeItems: "center",
-      background: "#f5fbfb",
-      padding: 16
-    }}>
-      <div style={{ ...sx.card, width: "min(460px, 92vw)" }}>
-        <h2 style={{ marginTop: 0, marginBottom: 6 }}>Welcome to MediLoop</h2>
-        <p style={{ marginTop: 0, color: "#334155" }}>
-          Get friendly, patient-first guidance for symptoms, diagnoses, and medication safety.
-        </p>
+    <div style={sx.loginWrap}>
+      <div style={sx.loginCard}>
+        <div style={{ display: "grid", placeItems: "center", gap: 10 }}>
+          <img
+            src={logo}
+            alt="MediLoop"
+            style={{ width: 48, height: 48, borderRadius: 12, boxShadow: "0 6px 16px rgba(20,184,166,.35)" }}
+          />
+          <h1 style={sx.loginTitle}>Welcome to MediLoop</h1>
+          <p style={sx.loginSubtitle}>
+            Book appointments sooner, know costs up-front, and get wellness guidance.
+          </p>
+        </div>
 
-        <label style={sx.label} htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          placeholder="you@example.com"
-          onChange={(e) => setEmail(e.target.value)}
-          style={sx.input}
-        />
-
-        <div style={{ display: "flex", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
-          <button
-            onClick={() => onSignIn(email)}
-            disabled={!email}
-            style={sx.primary}
-          >
-            Sign in
-          </button>
-          <button
-            onClick={onGuest}
-            style={sx.secondary}
-          >
-            Continue as guest
-          </button>
+        <div style={sx.loginInputRow}>
+          <input
+            type="email"
+            placeholder="Email (optional)"
+            style={sx.input}
+            onChange={(e) => (email = e.target.value)}
+          />
+          <div style={sx.loginActions}>
+            <button
+              style={sx.primary}
+              onClick={() => onSignIn?.(email)}
+            >
+              Continue
+            </button>
+            <button
+              style={{ ...sx.secondary, color: TURQ }}
+              onClick={() => onGuest?.()}
+            >
+              Continue as guest
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,10 @@ html, body, #root {
 }
 * { box-sizing: border-box; }
 
+body {
+  background: transparent; /* let our bg show */
+} 
+
 /* Remove default black focus ring on buttons and add a nicer one */
 button {
   outline: none;

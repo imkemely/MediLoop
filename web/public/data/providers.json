@@ -1,0 +1,37 @@
+[
+    {
+      "name": "Downtown Clinic",
+      "specialty": "Primary Care",
+      "inNetwork": true,
+      "distanceMiles": 2.1,
+      "languages": ["English", "Spanish"],
+      "nextSlots": [
+        "2025-09-28T14:00:00Z",
+        "2025-09-29T16:30:00Z",
+        "2025-10-01T10:00:00Z"
+      ]
+    },
+    {
+      "name": "Lakeside Family Practice",
+      "specialty": "Family Medicine",
+      "inNetwork": true,
+      "distanceMiles": 4.8,
+      "languages": ["English"],
+      "nextSlots": [
+        "2025-09-28T09:30:00Z",
+        "2025-09-30T13:00:00Z"
+      ]
+    },
+    {
+      "name": "CareNow Urgent",
+      "specialty": "Urgent Care",
+      "inNetwork": false,
+      "distanceMiles": 1.6,
+      "languages": ["English", "Creole"],
+      "nextSlots": [
+        "2025-09-27T23:00:00Z",
+        "2025-09-28T12:00:00Z"
+      ]
+    }
+  ]
+  
