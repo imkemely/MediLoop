@@ -1,3 +1,0 @@
-﻿[deploy]
-startCommand = "npm start"
-restartPolicyType = "ON_FAILURE"
