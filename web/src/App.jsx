@@ -58,11 +58,21 @@ export default function App() {
   // open events stream once
   useEffect(() => {
     const es = new EventSource(`${API_BASE}/api/events/stream`);
+    
     es.addEventListener("status", fetchState);
     es.addEventListener("step", fetchState);
     es.addEventListener("final", fetchState);
+    
+    es.addEventListener("error", (e) => {
+      console.log("SSE connection error, retrying...", e);
+      es.close();
+      // Retry after 5 seconds
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
+    });
+    
     return () => es.close();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // auto-fill default text per mode
@@ -151,7 +161,7 @@ export default function App() {
           />
 
           <AgentTeam />
-          
+
           <div ref={progressRef}>
             <ProgressCard show={showProgress} progress={progress} thinking={thinking} />
           </div>
