@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import { sx } from "./styles";
 import { PRESETS } from "./presets";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const API_BASE = "https://mediloop.up.railway.app";
 
 export default function App() {
   // routing/auth
