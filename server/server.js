@@ -51,6 +51,11 @@ app.get("/api/agents/runs/:runId/stream", (req, res) => {
   });
 });
 
+ // in server/server.js (near your other routes)
+app.get("/", (_req, res) => {
+    res.send("MediLoop backend is running. Try /health or POST /api/agents/run");
+  });
+  
 app.get("/api/agents/runs/:runId/result", (req, res) => {
   const r = runs.get(req.params.runId);
   if (!r) return res.status(404).json({ error: "not found" });
