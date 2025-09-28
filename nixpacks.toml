@@ -1,5 +1,5 @@
 ﻿[phases.setup]
-# Force Node toolchain so Railway installs Node (not Python)
+# Force Node toolchain so it won't pick Python
 nixPkgs = ["nodejs_22"]
 
 [phases.install]
@@ -9,7 +9,7 @@ cmds = [
 ]
 
 [phases.build]
-# No build step for the API
+# No build step needed for the API
 cmds = []
 
 [start]
