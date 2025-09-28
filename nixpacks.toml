@@ -1,17 +1,13 @@
 ﻿[phases.setup]
-# Force Node toolchain so it won't pick Python
 nixPkgs = ["nodejs_22"]
 
 [phases.install]
-# Install only the server deps
 cmds = [
   "cd server && npm ci --omit=dev"
 ]
 
 [phases.build]
-# No build step needed for the API
 cmds = []
 
 [start]
-# How to start in production
 cmd = "cd server && npm start"
