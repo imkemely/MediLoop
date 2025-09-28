@@ -7,7 +7,7 @@ html, body, #root {
 * { box-sizing: border-box; }
 
 body {
-  background: transparent; /* let our bg show */
+  background: transparent;
 } 
 
 /* Remove default black focus ring on buttons and add a nicer one */
@@ -20,8 +20,31 @@ button {
 button:focus { outline: none; }
 
 button:focus-visible {
-  outline: 2px solid #14b8a6;   /* TURQ */
+  outline: 2px solid #14b8a6;
   outline-offset: 2px;
-  border-radius: 10px;          /* matches our button radius */
+  border-radius: 10px;
 }
-;
+
+/* Add hover effects */
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 25px rgba(20,184,166,.5);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f6fffe 25%, #e6f6f5 50%, #f6fffe 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Focus styles for inputs */
+input:focus, textarea:focus {
+  border-color: #14b8a6 !important;
+  box-shadow: 0 0 0 3px rgba(20,184,166,0.1) !important;
+}
