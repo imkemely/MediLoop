@@ -13,7 +13,9 @@ export default function ProgressCard({ show, progress, thinking }) {
         ) : (
           <>
             {progress.map((p, i) => (
-              <div key={i} style={sx.progressLine}>• {p.msg || JSON.stringify(p)}</div>
+              <div key={i} style={sx.progressLine}>
+                • {typeof p === 'string' ? p : p.msg || 'Processing...'}
+              </div>
             ))}
             {thinking && <div style={sx.thinking}>{thinking}</div>}
           </>
