@@ -9,6 +9,7 @@ import ResultCard from "./components/ResultCard";
 import Footer from "./components/Footer";
 import { sx } from "./styles";
 import { PRESETS } from "./presets";
+import AgentTeam from "./components/AgentTeam";
 
 const API_BASE = "https://mediloop.up.railway.app";
 
@@ -149,6 +150,8 @@ export default function App() {
             onResetText={() => setText(PRESETS[mode]?.prefill || "")} // <— fixes the missing prop
           />
 
+          <AgentTeam />
+          
           <div ref={progressRef}>
             <ProgressCard show={showProgress} progress={progress} thinking={thinking} />
           </div>
