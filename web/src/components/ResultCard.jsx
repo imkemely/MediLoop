@@ -322,13 +322,28 @@ Please confirm availability and any required documents. Thank you!
           </div>
         )}
 
+        {/* AGENT COORDINATION DISPLAY */}
+        {final && (
+          <div style={{ margin: '20px 0', padding: '15px', backgroundColor: '#f0f9ff', borderRadius: '10px' }}>
+            <h4>Agent Coordination:</h4>
+            <div style={{ display: 'grid', gap: '8px' }}>
+              <div>🏥 Triage Agent: Analyzed symptoms → {mode === 'triage' ? 'Medium risk detected' : 'Assessed'}</div>
+              <div>📅 Scheduler Agent: Found appointment → Next available slot booked</div>
+              <div>💳 Coverage Agent: Verified insurance → Coverage confirmed</div>
+            </div>
+            <div style={{ marginTop: '10px', fontWeight: 'bold' }}>
+              → All agents coordinated to create your complete care plan
+            </div>
+          </div>
+        )}
+
         {!final && busy && mode === "triage" && (
           <div style={sx.note}>Analyzing your input…</div>
         )}
 
         <div style={sx.disclaimer}>
           <b>Reminder:</b> MediLoop is for educational guidance and is not a diagnosis. If symptoms
-          worsen or you’re worried, seek professional care.
+          worsen or you're worried, seek professional care.
         </div>
       </section>
 

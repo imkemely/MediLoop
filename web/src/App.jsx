@@ -160,8 +160,6 @@ export default function App() {
             onResetText={() => setText(PRESETS[mode]?.prefill || "")} // <— fixes the missing prop
           />
 
-          <AgentTeam />
-
           <div ref={progressRef}>
             <ProgressCard show={showProgress} progress={progress} thinking={thinking} />
           </div>
